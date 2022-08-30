@@ -17,7 +17,8 @@ class ResortFactory extends Factory
             'name' => $this->faker->unique()->company(),
             'image' => $this->faker->imageUrl(640,480),
             'price' =>$this->faker->randomFloat(2),
-            'description' => $this->faker->sentence(),
+            'description' => $this->faker->paragraph(5),
+            'location' => $this->faker->city(),
             'is_available' => $this->faker->boolean()
         ];
     }

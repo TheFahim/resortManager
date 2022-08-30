@@ -16,9 +16,10 @@ class CreateResortsTable extends Migration
         Schema::create('resorts', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->string('image',512);
+            $table->string('image',512)->nullable();
             $table->decimal('price',20,2);
-            $table->string('description',512);
+            $table->string('description',512)->nullable();
+            $table->string('location',512);
             $table->boolean('is_available');
             $table->timestamps();
         });

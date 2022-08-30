@@ -18,8 +18,16 @@
       </p>
       </div>
     @endif
+      <div>
+        <a href="{{route('resort.create')}}" class="btn btn-primary">Create</a>
+        <div class="navbar navbar-light bg-light">
+          <form class="form-inline d-flex">
+            <input name="search" class="form-control mr-sm-3" type="text" placeholder="Find Name or Location" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
 
-  <button type="button" class="btn btn-primary">Create</button>
 
   <table class="table">
   <thead class="thead-light">
@@ -27,6 +35,7 @@
       <th scope="col">#</th>
       <th scope="col">Name</th>
       <th scope="col">Image</th>
+      <th scope="col">Location</th>
       <th scope="col">Price</th>
       <th scope="col">Availibiliy</th>
       <th scope="col">Action</th>
@@ -37,7 +46,8 @@
     <tr>
       <th scope="row">{{$loop->iteration + $resorts->firstItem() - 1}}</th>
       <td>{{$resort->name}}</td>
-      <td><img src="{{$resort->image}}" alt="resort_image" width="100px"></td>
+      <td><img src="{{$resort->image ? asset('storage/'.$resort->image) : asset('/images/no-image.png')}}" alt="resort_image" width="100px"></td>
+      <td>{{$resort->location}}</td>
       <td>{{$resort->price}} $</td>
       <td>{{$resort->is_available ? 'Available':'Unavailabe'}}</td>
       <td class="d-flex">

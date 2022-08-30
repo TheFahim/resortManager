@@ -14,7 +14,7 @@ class ResortController extends Controller
      */
     public function index()
     {
-        $resorts = Resort::latest()->paginate(10);
+        $resorts = Resort::latest()->filter(request(['search']))->paginate(10);
 
         return view('admin.resort.index',compact('resorts'));
     }
@@ -26,7 +26,7 @@ class ResortController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.resort.create');
     }
 
     /**
@@ -35,9 +35,27 @@ class ResortController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Resort $resort)
     {
-        //
+
+        $formFields = $request->validate([
+            'name' => 'required',
+            'description' =>'nullable',
+            'price' => 'required',
+            'location' => 'required'
+        ]);
+
+        $formFields['is_available'] = $request->is_active ?? false;
+
+
+        if ($request->hasFile('image')) {
+            $formFields['image'] = $request->file('image')->store('images', 'public');
+        }
+
+        $resort->create($formFields);
+
+        return redirect()->route('resort.index')->with('message', 'Resort Data Created Successfully');
+
     }
 
     /**
@@ -57,9 +75,9 @@ class ResortController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Resort $resort)
     {
-        //
+        return view('admin.resort.edit', compact('resort'));
     }
 
     /**
@@ -69,9 +87,28 @@ class ResortController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Resort $resort)
     {
-        //
+        // dd($request);
+
+        $formFields = $request->validate([
+            'name' => 'required',
+            'description' =>'nullable',
+            'price' => 'required',
+            'location' => 'required'
+        ]);
+
+        $formFields['is_available'] = $request->is_active ?? false;
+
+
+        if ($request->hasFile('image')) {
+            $formFields['image'] = $request->file('image')->store('images', 'public');
+        }
+
+        $resort->update($formFields);
+
+        return redirect()->route('resort.index')->with('message', 'Resort Data Updated Successfully');
+
     }
 
     /**
