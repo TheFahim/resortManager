@@ -22,4 +22,5 @@ A super admin will be created.
 
 login with these Credentials
 > email: superadmin@mail.com
+
 > password: 123456
