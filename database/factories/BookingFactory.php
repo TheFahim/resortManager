@@ -18,6 +18,7 @@ class BookingFactory extends Factory
             'address' => $this->faker->address(),
             'phone' =>$this->faker->phoneNumber(),
             'email' => $this->faker->unique()->email(),
+            'resort_name' => $this->faker->company(),
             'start_date' => $this->faker->unique()->dateTimeThisMonth('-12 days'),
             'end_date' => $this->faker->unique()->dateTimeThisMonth('12 days')
         ];
