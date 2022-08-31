@@ -8,47 +8,55 @@
         <div class="row mb-4">
           <div class="col">
             <div class="form-outline">
-              <input type="text" name="customer_name" id="form6Example1" class="form-control" placeholder="Your Name"/>
+
               <label class="form-label" for="form6Example1">name</label>
+
+              <input type="text" name="customer_name" id="form6Example1" class="form-control" placeholder="Your Name"/>
+
             </div>
           </div>
         </div>
 
         <!-- Text input -->
         <div class="form-outline mb-4">
-          <input type="text" name="address" id="form6Example4" class="form-control" />
           <label class="form-label" for="form6Example4">Address</label>
+
+          <input type="text" name="address" id="form6Example4" class="form-control" />
         </div>
 
         <!-- Email input -->
         <div class="form-outline mb-4">
-          <input type="email" name="email" id="form6Example5" class="form-control" />
           <label class="form-label" for="form6Example5">Email</label>
+          <input type="email" name="email" id="form6Example5" class="form-control" />
         </div>
 
         <!-- Number input -->
         <div class="form-outline mb-4">
-          <input type="text" name="phone" id="form6Example6" class="form-control" />
           <label class="form-label" for="form6Example6">Phone</label>
+
+          <input type="text" name="phone" id="form6Example6" class="form-control" />
         </div>
 
         <!-- Message input -->
                 <!-- Text input -->
         <div class="form-outline mb-4">
-          <input type="text" name="resort_name" id="form6Example3" class="form-control" />
           <label class="form-label" for="form6Example3">Resort name</label>
+
+          <input type="text" name="resort_name" id="form6Example3" class="form-control" />
         </div>
 
                 <!-- Text input -->
         <div class="form-outline mb-4">
-          <input type="date" name="start_date" id="form6Example3" class="form-control" />
           <label class="form-label" for="form6Example3">Check In Date </label>
+
+          <input type="date" name="start_date" id="form6Example3" class="form-control" />
         </div>
 
                 <!-- Text input -->
         <div class="form-outline mb-4">
-          <input type="date" name="end_date" id="form6Example3" class="form-control" />
           <label class="form-label" for="form6Example3">Checkout Date</label>
+
+          <input type="date" name="end_date" id="form6Example3" class="form-control" />
         </div>
 
         <!-- Submit button -->
