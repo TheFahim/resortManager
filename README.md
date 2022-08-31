@@ -11,6 +11,8 @@ cp .env .env.example
 ```
 Then Configure the `.env` file
 
+After Configuring
+
 ```
 php artisan migrate:fresh --seed
 php artisan optimize
