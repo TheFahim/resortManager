@@ -35,7 +35,7 @@
               <p class="mb-4">Only Admins Can Log in</p>
             </div>
             <!-- input form -->
-            <form action="/login/authenticate" method="POST">
+            <form action="{{route('authenticate')}}" method="POST">
               @csrf
 
               <div class="form-group first">

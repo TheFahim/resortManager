@@ -24,14 +24,14 @@ class AuthController extends Controller
     public function authenticate(Request $request){
 
         $formFields = $request->validate([
-            'email' => ['required', 'email'],
+            'email' => 'required | email',
             'password' => 'required'
         ]);
 
         if (auth()->attempt($formFields)) {
             $request->session()->regenerate();
 
-            return redirect('/admin')->with('message','You are logged in');
+            return redirect()->route('admin.dashboard')->with('message','You are logged in');
         }
 
        return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');

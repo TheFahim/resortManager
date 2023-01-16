@@ -20,10 +20,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PublicController::class,'home'])->name('home');
-Route::get('/booking', [PublicController::class,'booking'])->name('home.booking');
-Route::post('/booking',[PublicController::class,'store'])->name('booking.store');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/booking', [PublicController::class,'booking'])->name('home.booking');
+    Route::post('/booking',[PublicController::class,'store'])->name('booking.store');
     Route::get('/admin', [DashboardController::class,'dashboard'])->name('admin.dashboard');
     Route::get('/admin/create', [AdminController::class,'create'])->name('admin.create');
     Route::resource('resort',ResortController::class);
@@ -40,7 +40,7 @@ Route::post('/users', [AdminController::class, 'store']);
 
 
 // user login
-Route::post('/login/authenticate', [AuthController::class,'authenticate']);
+Route::post('/login', [AuthController::class,'authenticate'])->name('authenticate');
 
 //user logout
-Route::post('/logout', [AuthController::class,'logout'])->middleware('auth');
+Route::post('/logout', [AuthController::class,'logout'])->middleware('auth')->name('logout');
